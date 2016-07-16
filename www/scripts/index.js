@@ -18,7 +18,14 @@
         var receivedElement = parentElement.querySelector('.received');
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
+        browser = cordova.InAppBrowser.open('http://365word.ru', '_parent', 'location=no')
+        browser.addEventListener('exit', onBrowserExit);
     };
+
+    function onBrowserExit()
+    {
+        navigator.app.exitApp();
+    }
 
     function onPause() {
         // TODO: This application has been suspended. Save application state here.
