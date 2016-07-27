@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="io.cordova.myapp7e2878" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" defaultlocale="en-US">
+<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="com.solomontrainings.word365" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" defaultlocale="en-US">
   <name>365word</name>
-  <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, Windows, and Windows Phone.</description>
-  <author href="http://cordova.io" email="dev@cordova.apache.org">Apache Cordova Team </author>
+  <description>Word for 365 days</description>
+  <author href="http://cordova.io" email="dev@cordova.apache.org">Solomon Trainings</author>
   <content src="index.html" />
   <access origin="http://365word.ru/*" />
   <vs:features />
@@ -108,4 +108,6 @@
   </platform>
   <plugin name="cordova-plugin-inappbrowser" version="1.4.0" />
   <plugin name="de.appplant.cordova.plugin.local-notification" version="0.8.4" src="https://github.com/katzer/cordova-plugin-local-notifications" />
+  <plugin name="cordova-plugin-app-event" version="1.2.0" />
+  <plugin name="cordova-plugin-device" version="1.1.2" />
 </widget>

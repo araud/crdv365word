@@ -4,8 +4,14 @@
 // and then run "window.location.reload()" in the JavaScript Console.
 (function () {
     "use strict";
+    var oBrowser = null;
 
     document.addEventListener('deviceready', onDeviceReady.bind(this), false);
+
+    function log(text)
+    {
+        console.log("***" + text + "\n");
+    }
 
     function onDeviceReady() {
         // Handle the Cordova pause and resume events
@@ -18,10 +24,18 @@
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
+        log("man" + device.manufacturer);
+        log("uuid" + device.uuid);
+        log("serial" + device.serial);
+
         boom();
 
-        browser = cordova.InAppBrowser.open('http://365word.ru', '_parent', 'location=no')
-        browser.addEventListener('exit', onBrowserExit);
+        //oBrowser = cordova.InAppBrowser.open('http://365word.ru', '_parent', 'location=no')
+        oBrowser = cordova.InAppBrowser.open('http://365word.ru', '_parent', 'location=yes')
+        
+        oBrowser.addEventListener('loadstart', onUrlLoadStarted);
+        oBrowser.addEventListener('loadstop', onUrlLoaded);
+        oBrowser.addEventListener('exit', onBrowserExit);
     };
 
     function bringToFront()
@@ -55,6 +69,16 @@
     function onBrowserExit()
     {
         navigator.app.exitApp();
+    }
+
+    function onUrlLoaded(params)
+    {
+        log("onUrlLoaded:" + params.url);
+    }
+
+    function onUrlLoadStarted(event)
+    {
+        log("onUrlLoadStarted:" + event.url);
     }
 
     function onPause() {
